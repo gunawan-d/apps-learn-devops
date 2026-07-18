@@ -54,6 +54,7 @@ jobs:
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
 
       - name: Build and push Docker image
+        id: build
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -67,4 +68,4 @@ jobs:
 
       - name: Image digest
         run: echo "Image pushed with digest: ${{ steps.build.outputs.digest }}"
-        if: ${{ github.event_name != 'pull_request' }}
+        if: github.event_name != 'pull_request'
