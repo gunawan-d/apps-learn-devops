@@ -66,6 +66,6 @@ jobs:
           provenance: true
           sbom: true
 
-      - name: Image digest
-        run: echo "Image pushed with digest: ${{ steps.build.outputs.digest }}"
-        if: ${{ github.event_name != 'pull_request' }}
+      # - name: Image digest
+      #   run: echo "Image pushed with digest: ${{ steps.build.outputs.digest }}"
+      #   if: ${{ github.event_name != 'pull_request' }}
